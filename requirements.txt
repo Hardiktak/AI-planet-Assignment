@@ -1,6 +1,6 @@
 streamlit
 openai
-langchain==0.0.350
+langchain==0.1.20
 langchain-community==0.0.38
 faiss-cpu
 sympy
