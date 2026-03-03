@@ -17,3 +17,4 @@ easyocr
 # Whisper
 openai-whisper
 pydub
+streamlit-audiorec
