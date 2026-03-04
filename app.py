@@ -49,8 +49,7 @@ if "processing" not in st.session_state:
 
 text_handler = TextHandler()
 image_handler = ImageHandler()
-audio_handler = AudioHandler()
-
+audio_handler = AudioHandler(st.session_state.client)
 
 # ──────────────────────────────────────────────
 # Sidebar — Input Panel + Agent Trace
