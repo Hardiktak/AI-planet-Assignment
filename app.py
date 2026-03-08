@@ -94,13 +94,10 @@ with st.sidebar:
                 st.session_state.extracted_text = ocr_result.get("text", "")
                 ocr_conf = ocr_result.get("confidence", 0)
                 st.info(f"OCR Confidence: {ocr_conf:.1f}%")
-                if ocr_result.get("needs_review"):
-                    st.warning("Low OCR confidence — please review the extracted text below.")
-                    st.session_state.hitl_active = True
-                else:
-                    st.session_state.processing = True
-                    st.session_state.result = None
-                    st.rerun()
+
+                # Always trigger HITL for image inputs
+                st.warning("Please review the extracted text before solving.")
+                st.session_state.hitl_active = True
 
     # --- Audio Input ---
     elif input_mode == "Audio":
@@ -137,13 +134,10 @@ with st.sidebar:
                 st.session_state.extracted_text = asr_result.get("text", "")
                 asr_conf = asr_result.get("confidence", 0)
                 st.info(f"ASR Confidence: {asr_conf:.2f}")
-                if asr_result.get("needs_review"):
-                    st.warning("Low ASR confidence — please review the transcript below.")
-                    st.session_state.hitl_active = True
-                else:
-                    st.session_state.processing = True
-                    st.session_state.result = None
-                    st.rerun()
+
+                # Always trigger HITL for audio inputs
+                st.warning("Please review the transcript before solving.")
+                st.session_state.hitl_active = True
 
     st.divider()
 
